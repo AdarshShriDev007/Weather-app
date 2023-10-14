@@ -1,0 +1,86 @@
+body{
+   padding: 0px !important;
+   margin: 0px !important;
+}
+
+.header-btn{
+    color: #369fd3 !important;
+    border: 1px solid #369fd3 !important;
+}
+
+.header-btn:hover{
+    color: white !important;
+    background-color: #369fd3 !important;;
+}
+
+.active{
+    color: white !important;
+    background-color: #369fd3 !important;;
+}
+
+.search-box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.search-input{
+    width: 60%;
+    padding: 5px 10px;
+    border: 1px solid #369fd3;
+    border-radius: 5px;
+}
+
+.result-box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top:10px;
+
+}
+
+.result{
+    width: 60%;
+    padding: 5px 10px;
+    border: 1px solid #369fd3;
+    border-radius: 5px;
+    
+}
+
+.search-input:focus{
+    border: 1px solid #369fd3;
+    outline: none;
+}
+
+.location-box{
+    background-color: #074171 !important;
+    color:white !important;
+}
+
+.realtime-box{
+    background-color: #20799b;
+    color:white !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.temp{
+    font-size: 80px;
+}
+
+.celsius-symbol{
+    font-size: 40px;
+}
+
+.realtime-box2{
+    color:white !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.air-bg{
+    background-image: url("sky.jpg");
+    background-size: cover;
+}

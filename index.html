@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather App - Global Weather Information</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <header>
+            <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+              <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+                <img src="./images/logo.jpg" alt="logo" width="50px">
+                &nbsp;<span class="fs-4">Weather App</span>
+              </a>
+              <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+                <button class="btn btn-outline me-2 header-btn" type="button">Login</button>
+                <button class="btn btn me-2 header-btn active" type="button">Sign Up</button>
+              </nav>
+            </div>
+        
+            <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+              <h1 class="display-6 fw-normal text-body-emphasis">Global Weather Information Service</h1>
+              <p class="fs-5 text-body-secondary">This global website presents OFFICIAL weather observations, weather forecasts and climatological information for selected cities supplied by National Meteorological & Hydrological Services (NMHSs) worldwide.The NMHSs make official weather observations in their respective countries. Links to their official weather service websites and tourism board/organization are also provided whenever available. Weather icons are shown alongside worded forecasts in this version to facilitate visual inspection.</p>
+            </div>
+
+                <form class="search-box"> 
+                    
+                    <input type="text" id="search-key" class="search-input" autocomplete="off" placeholder="Ex :- City, State, Country">
+                      
+                </form>
+
+                <div class="result-box">
+                  <div class="d-flex flex-column resultHideBlock">
+                      
+                   
+                  </div>
+                </div>
+                
+
+                
+                  <small style="margin-left:22%;margin-top:3px" id="message"></small>  
+    
+        </header>
+
+        <section class="mb-5">
+          
+          <div class="row mt-5">
+            <div class="col-md-12">
+              <div class="card" style="background-color: #20799b;box-shadow: 5px 5px 5px grey;">
+                <h6 style="color:white;font-weight: bold;padding:10px 16px">Realtime Weather</h6>
+                <div class="card-header d-flex justify-content-between" style="background-color: #074171;">
+                  <div class="location-box">
+                    <h4 id="name" class="m-0"></h4>
+                    <h6 id="countryName"></h6>
+
+                    <div class="currentTime-box">
+                      <small>Local Time :</small>
+                      <small id="current-time">7 July 2023, 8:09 AM</small> 
+                    </div>
+                  </div>
+                  <div style="color: white;" class="d-flex flex-column">
+                    <div class="timezone-con">
+                      <small id="utc">Timezone :</small>
+                      <small id="timezone"></small>
+                    </div>
+
+                    <div class="latitude-con">
+                      <small style="font-weight: normal;margin:0px;font-size: 13px;color:whitesmoke">Latitude</small>
+                      <small id="latitude"></small>
+                    </div>
+                    
+                    <div class="longitude-con">
+                      <small style="font-weight: normal;margin:0px;font-size: 13px;color:whitesmoke">Longitude</small>
+                      <small id="longitude"></small>
+                    </div>
+                    
+                    
+                  </div>
+                  
+                </div>
+                
+                <div class="card-body" style="background-color: #20799b;">
+                  <div class="realtime-box">
+                    <div>
+                      <div class="d-flex">
+                        <h1 class="temp" id="tempC"></h1>
+                        <span class="celsius-symbol">&#8451;</span>
+                      </div>
+                      
+                      
+                    </div>
+                    <div>
+                      <div class="d-flex align-items-center">
+                        <h5 id="weatherCondition" class="mt-3"></h5>
+                        <img id="weatherConditionIcon">
+                      </div>
+                      <div class="d-flex">
+                        <h6 style="font-weight: normal;">Feels Like&nbsp;&nbsp; </h6>
+                        <h6 id="feelsLikeC"></h6>
+                        <span style="font-size: 10px;">&#8451;</span>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  
+                  <div class="realtime-box2">
+                    <div class="windSpeed-con">
+                      <div class="d-flex justify-content-center">
+                        <i class="fa-solid fa-wind"></i>&nbsp;
+                        <h6 style="font-weight: normal;margin:0px;font-size: 13px;color:whitesmoke">Wind Speed</h6>
+                      </div>
+                      <div class="d-flex align-items-center" style="margin-top:-6px">
+                        &nbsp; &nbsp;<span id="windSpeed">6</span>
+                        <span>&nbsp;km/h</span>
+                      </div> 
+                    </div>
+
+                    <div class="windDir-con">
+                      <div class="d-flex justify-content-center">
+                        <i class="fa-solid fa-wind"></i>&nbsp;
+                        <h6 style="font-weight: normal;margin:0px;font-size: 13px;color:whitesmoke">Wind Direction</h6>
+                      </div>
+                      <div class="d-flex align-items-center" style="margin-top:-6px">
+                        &nbsp; &nbsp;<span id="windDir">ENE</span>
+                        
+                      </div> 
+                    </div>
+
+                    <div class="humidity-con">
+                      <div class="d-flex justify-content-center">
+                        <i class="fa-solid fa-droplet"></i>&nbsp;
+                        <h6 style="font-weight: normal;margin:0px;font-size: 13px;color:whitesmoke">Humidity</h6>
+                      </div>
+                     <div class="d-flex align-items-center" style="margin-top:-6px">
+                      &nbsp; &nbsp;<span id="humidityP"></span>
+                        <span>&nbsp;%</span>
+                      </div> 
+                    </div>
+
+                    <div class="Pressure-con">
+                      <div class="d-flex justify-content-center">
+                        <i class="fa-brands fa-wpressr"></i>&nbsp;
+                        <h6 style="font-weight: normal;margin:0px;font-size: 13px;color:whitesmoke">Pressure</h6>
+                      </div>
+                      <div class="d-flex align-items-center" style="margin-top:-6px">
+                        &nbsp; &nbsp;<span id="pressure">1001</span>
+                        <span>&nbsp;mb</span>
+                      </div> 
+                    </div>
+                    
+                    <div class="Visibility-con">
+                      <div class="d-flex justify-content-center">
+                        <i class="fa-solid fa-eye"></i>&nbsp;
+                        <h6 style="font-weight: normal;margin:0px;font-size: 13px;color:whitesmoke">Visibility</h6>
+                      </div>
+                      <div class="d-flex align-items-center" style="margin-top:-6px">
+                        &nbsp; &nbsp;<span id="visibility">9.5</span>
+                        <span>&nbsp;km</span>
+                      </div> 
+                    </div>
+
+                  </div>
+                  
+                </div>
+                <div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="card text-center mt-5 mb-5" style="box-shadow: 5px 5px 5px grey;border:none;">
+            <div class="card-header d-flex justify-content-center align-items-center" style="background-color: #369fd3;">
+              <h6 style="color:white">
+                Major Air Pollutants in
+              </h6>
+              <h6 style="color:white;margin-left:4px" id="airCityName">
+                
+              </h6>
+            </div>
+            <div class="card-body air-bg" style="background-color:white;">
+
+
+              <div class="d-flex justify-content-around">
+
+                <div>
+                  <div>
+                    <img src="./images/pm2.5-icon.webp" width="30px" alt="">
+                  </div>
+                  <div><span style="font-size: 22px;font-weight: bold;" id="pm25"></span><small> (PM2.5)</small></div>
+                </div>
+
+                <div>
+                  <div>
+                    <img src="./images/pm10-icon.webp" width="30px" alt="">
+                  </div>
+                  <div><span style="font-size: 22px;font-weight: bold;" id="pm10"></span><small> (PM10)</small></div>
+                </div>
+
+                <div>
+                  <div>
+                    <img src="./images/so2.webp" width="30px" alt="">
+                  </div>
+                  <div><span style="font-size: 22px;font-weight: bold;" id="so2"></span><small> (SO2)</small></div>
+                </div>
+
+              </div>
+
+              <div class="d-flex justify-content-around mt-4">
+
+                <div>
+                  <div>
+                    <img src="./images/CO.webp" width="30px" alt="">
+                  </div>
+                  <div><span style="font-size: 22px;font-weight: bold;" id="co"></span><small> (CO)</small></div>
+                </div>
+
+                <div>
+                  <div>
+                    <img src="./images/o3.webp" width="30px" alt="">
+                  </div>
+                  <div><span style="font-size: 22px;font-weight: bold;" id="o3"></span><small> (Ozone)</small></div>
+                </div>
+
+                <div>
+                  <div>
+                    <img src="./images/no2.webp" width="30px" alt="">
+                  </div>
+                  <div><span style="font-size: 22px;font-weight: bold;" id="no2"></span><small> (NO2)</small></div>
+                </div>
+ 
+              </div>
+              
+            </div>
+            
+          </div>
+
+
+          <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+            
+            <div style="color:white;border-radius: 5px;box-shadow: 5px 5px 5px grey;background-color: #20799b;" class=" me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center">
+              <div class="my-3 py-3">
+                <h6 style="font-weight: bold;">Astronomy</h6>
+                <p class="lead">Astrometeorology or meteorological astrology is a pseudoscience that attempts to forecast the weather using astrology</p>
+              </div>
+              <div class="p-2 shadow-sm mx-auto" style="width: 80%; border-radius: 5px;background-color:black">
+                
+
+                <div class="astro-con" style="color:rgb(214, 211, 211)">
+                  <div class="row mt-3">
+                    <div class="col-md-4">
+
+                      <div class="moon-con">
+
+                        <div class="moonrise-con mb-4 d-flex">
+                          <div class="d-flex align-items-center">
+                            <img src="./images/moonrise.png" width="40px" alt="">
+                          </div>
+                          <div class="d-flex flex-column align-items-start" style="margin-left: 5px;">
+                            <small>Moonrise</small>
+                            <span id="moonrise"></span>
+                          </div> 
+                        </div>
+
+                        <div class="moonset-con mb-4 d-flex">
+                          <div class="d-flex align-items-center">
+                            <img src="./images/moonset.png" width="40px" alt="">
+                          </div> 
+                          <div class="d-flex flex-column align-items-start" style="margin-left: 5px;">
+                            <small>Moonset</small>
+                            <span id="moonset"></span>
+                          </div> 
+                        </div>
+    
+                        <div class="moonphase-con mb-4 d-flex">
+                          <div class="d-flex align-items-center">
+                            <img src="./images/moon-phases.png" width="30px" alt="">
+                          </div>
+
+                          <div class="d-flex flex-column align-items-start" style="margin-left: 5px;">
+                            <small>Moon Phase</small>
+                            <span id="moonphase"></span>
+                          </div> 
+                        </div>
+    
+                        <div class="moonIllu-con d-flex">
+                          <div class="d-flex align-items-center">
+                            <img src="./images/moonIllu.png" width="30px" alt="">
+                          </div>
+
+                          <div class="d-flex flex-column align-items-start" style="margin-left: 5px;">
+                            <small>Moon Illumination</small>
+                            <div>
+                              <span id="moonillu"></span>
+                              <span>%</span>
+                            </div>
+                            
+                          </div> 
+                        </div>
+                        
+                      </div>
+
+                    </div>
+                    <div class="col-lg-4 d-flex justify-content-center align-items-center">
+
+                      <div class="gif-con">
+                        <img src="./images/moon_gif.gif" width="60px" alt="">
+                        <img src="./images/sun_gif.gif" width="60px" alt="">
+                      </div>
+
+                    </div>
+                    <div class="col-lg-4 d-flex justify-content-center align-items-center">
+
+                      <div class="sun-con">
+                        <div class="sunrise-con mb-4 d-flex">
+                          <div class="d-flex align-items-center">
+                            <img src="./images/sunrise.png" width="40px" alt="">
+                          </div>
+                          <div class="d-flex flex-column align-items-start" style="margin-left: 5px;">
+                            <small>Sunrise</small>
+                            <span id="sunrise"></span>
+                          </div>     
+                        </div>
+
+                        <div class="sunset-con mb-4 d-flex">
+                          <div class="d-flex align-items-center">
+                            <img src="./images/sunset.png" width="40px" alt="">
+                          </div>
+                          <div class="d-flex flex-column align-items-start" style="margin-left: 5px;">
+                            <small>Sunset</small>
+                            <span id="sunset"></span>
+                          </div>     
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                
+                </div>
+              
+              </div>
+            </div>
+          </div>
+          
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
